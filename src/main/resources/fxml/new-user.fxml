@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="250.0" prefWidth="200.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cardsmethoddatabase.controllers.NewUserController">
+   <children>
+      <Label text="Username" />
+      <TextField fx:id="usernameField" />
+      <Label fx:id="usernameWarning" text="Please enter username" textFill="#d72222" visible="false">
+         <font>
+            <Font name="System Bold" size="11.0" />
+         </font>
+      </Label>
+      <CheckBox mnemonicParsing="false" text="I dont need a password!" textFill="#999999">
+         <padding>
+            <Insets bottom="10.0" />
+         </padding>
+      </CheckBox>
+      <Label text="Password" />
+      <PasswordField fx:id="passwordField" />
+      <Label fx:id="passwordWarning" text="Please enter password" textFill="#d72222" visible="false">
+         <font>
+            <Font name="System Bold" size="11.0" />
+         </font>
+      </Label>
+      <Label text="Repeat password" />
+      <PasswordField fx:id="repeatPasswordField" />
+      <Label fx:id="rpWarning" text="Passwords are different" textFill="#d72222" visible="false">
+         <font>
+            <Font name="System Bold" size="11.0" />
+         </font>
+      </Label>
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#onCreateNewUser" text="Create" />
+         </children>
+      </HBox>
+   </children>
+</VBox>

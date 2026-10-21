@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox alignment="CENTER" prefHeight="300.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cardsmethoddatabase.controllers.ChooseUserController">
+   <children>
+      <Label text="Choose user" />
+      <ChoiceBox fx:id="choiceBoxUser" prefWidth="150.0" />
+      <Label text="Password" />
+      <PasswordField fx:id="passwordField" />
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#onCreateNewUser" text="New user" />
+            <Button mnemonicParsing="false" onAction="#onLogIn" text="Log in" />
+         </children>
+      </HBox>
+   </children>
+</VBox>

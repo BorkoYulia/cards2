@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+            prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.cardsv2.controller.CardsMenuController">
+    <right>
+        <TableView fx:id="wordsTable" prefHeight="200.0" prefWidth="275.0" BorderPane.alignment="CENTER">
+            <columns>
+                <TableColumn fx:id="wordColumn" prefWidth="75.0" text="Word" />
+                <TableColumn fx:id="translationColumn" prefWidth="100.0" text="Translation" />
+                <TableColumn fx:id="transcriptionColumn" prefWidth="100.0" text="Transcription" />
+            </columns>
+        </TableView>
+    </right>
+    <left>
+        <VBox prefWidth="150.0" BorderPane.alignment="CENTER">
+            <TableView fx:id="topicTable" prefHeight="337.0" prefWidth="139.0">
+                <columns>
+                    <TableColumn fx:id="topicColumn" prefWidth="100.0" text="Topic"/>
+                    <TableColumn fx:id="amountOfWordsColumn" prefWidth="50.0" text="Words"/>
+                </columns>
+                <VBox.margin>
+                    <Insets/>
+                </VBox.margin>
+            </TableView>
+            <TextField fx:id="textFieldTopic"/>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                <Button mnemonicParsing="false" onAction="#onAddTopic" text="Add"/>
+                <Button mnemonicParsing="false" onAction="#onEditTopic" text="Edit"/>
+                <Button mnemonicParsing="false" onAction="#onDeleteTopic" text="Delete"/>
+            </HBox>
+        </VBox>
+    </left>
+    <center>
+        <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+            <BorderPane.margin>
+                <Insets left="10.0" right="10.0"/>
+            </BorderPane.margin>
+            <Label text="Selected topic:">
+                <font>
+                    <Font size="20.0"/>
+                </font>
+            </Label>
+            <Label fx:id="labelTopicName" layoutX="10.0" layoutY="10.0">
+                <font>
+                    <Font size="20.0"/>
+                </font>
+            </Label>
+            <Label text="Word"/>
+            <TextField fx:id="wordTextField"/>
+            <Label text="Translation"/>
+            <TextField fx:id="translationTextField"/>
+            <Label text="Transcription"/>
+            <TextField fx:id="transcriptionTextField"/>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                <Button fx:id="addWordButton" disable="true" mnemonicParsing="false" onAction="#onAddWord" text="Add"/>
+                <Button fx:id="editWordButton" mnemonicParsing="false" onAction="#onEditWord" text="Edit"/>
+                <Button fx:id="deleteWordButton" mnemonicParsing="false" onAction="#onDeleteWord" text="Delete"/>
+            </HBox>
+        </VBox>
+    </center>
+</BorderPane>
