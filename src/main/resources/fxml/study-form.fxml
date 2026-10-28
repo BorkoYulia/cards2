@@ -11,17 +11,17 @@
             <children>
                <Label fx:id="labelWord" text="Word">
                   <font>
-                     <Font name="Monospaced Regular" size="24.0" />
+                     <Font size="24.0" />
                   </font>
                </Label>
                <Label fx:id="labelTranscription" text="Transcription">
                   <font>
-                     <Font name="Monospaced Regular" size="18.0" />
+                     <Font size="18.0" />
                   </font>
                </Label>
                <Label fx:id="translationLabel" text="Translation" visible="false">
                   <font>
-                     <Font name="Monospaced Regular" size="18.0" />
+                     <Font size="18.0" />
                   </font>
                </Label>
                <HBox alignment="CENTER" spacing="20.0">
@@ -29,7 +29,7 @@
                      <Button fx:id="wrongButton" mnemonicParsing="false" onAction="#onWrongAnswer" style="-fx-background-color: #f26754;" text="◀" />
                      <ToggleButton fx:id="magicButton" mnemonicParsing="false" onAction="#onShowInfo" text="Show me a secret!">
                         <font>
-                           <Font name="Monospaced Regular" size="16.0" />
+                           <Font size="18.0" />
                         </font></ToggleButton>
                      <Button fx:id="correctButton" mnemonicParsing="false" onAction="#onCorrectAnswer" style="-fx-background-color: #bfd85b;" text="▶" />
                   </children>
