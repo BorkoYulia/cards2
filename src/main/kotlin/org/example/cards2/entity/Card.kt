@@ -30,10 +30,9 @@ open class Card {
     @JoinColumn(name = "topic_id")
     open var topic: Topic? = null
 
-    constructor(word: String?, transcription: String?, translation: String?, topic: Topic?) {
+    constructor(word: String?, transcription: String?, translation: String?) {
         this.word = word
         this.transcription = transcription
         this.translation = translation
-        this.topic = topic
     }
 }
