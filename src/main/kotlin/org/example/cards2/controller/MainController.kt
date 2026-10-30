@@ -21,13 +21,13 @@ import javax.security.auth.callback.Callback
 class MainController(private val topicService: TopicService, val cardService: CardService) {
 
     @FXML
-    private var textFieldTopic: TextField? = null
+    private lateinit var textFieldTopic: TextField
 
     @FXML
-    private var topicColumn: TableColumn<Topic, String>? = null
+    private lateinit var topicColumn: TableColumn<Topic, String>
 
     @FXML
-    private var cardsAmountColumn: TableColumn<Topic, Int>? = null
+    private lateinit var cardsAmountColumn: TableColumn<Topic, Int>
 
     @FXML
     private lateinit var wordColumn: TableColumn<Card, String>
@@ -53,11 +53,11 @@ class MainController(private val topicService: TopicService, val cardService: Ca
 
     //-------------functions:----------------
     fun initialize() {
-        topicColumn?.cellValueFactory = PropertyValueFactory("title")
+        topicColumn.cellValueFactory = PropertyValueFactory("title")
        // TODO cardsAmountColumn?.cellValueFactory =
         topicTable.selectionModel.selectedItemProperty().addListener { _, oldValue, newValue ->
             if (newValue != null){
-                textFieldTopic!!.text = newValue.title
+                textFieldTopic.text = newValue.title
                 loadWords()
             }
             addWordButton.isDisable = newValue == null
@@ -78,23 +78,23 @@ class MainController(private val topicService: TopicService, val cardService: Ca
     }
 
     fun onAddTopic() {
-        val title = textFieldTopic!!.text
+        val title = textFieldTopic.text
         val cards = 0
 
         val topic = Topic(title = title)
         topicService.addNewTopic(topic)
-        textFieldTopic!!.clear()
+        textFieldTopic.clear()
         loadTopics()
     }
 
     fun onEditTopic() {
         val selectedTopic = topicTable.selectionModel.selectedItem
         if (selectedTopic != null) {
-            selectedTopic.title = textFieldTopic!!.text
+            selectedTopic.title = textFieldTopic.text
             topicService.save(selectedTopic)
         }
         loadTopics()
-        textFieldTopic!!.clear()
+        textFieldTopic.clear()
         print(selectedTopic)
     }
 
