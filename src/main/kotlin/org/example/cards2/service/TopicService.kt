@@ -9,16 +9,20 @@ import org.springframework.transaction.annotation.Transactional
 @Service
 @Transactional
 class TopicService(val topicRepository: TopicRepository) {
+    fun findAll(): List<Topic> {
+        return topicRepository.findAll()
+    }
+
     fun addNewTopic(topic: Topic): Topic? { //что делает "Topic?"
         return topicRepository.save<Topic>(topic)
     }
 
     fun editTopic(topic: Topic){
-
+        //return topicRepository.update(topic)
     }
 
     fun deleteTopic(topic: Topic){
-
+        return topicRepository.delete(topic)
     }
 
     fun save(topic: Topic): Topic? {

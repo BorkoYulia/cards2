@@ -22,8 +22,8 @@ open class Topic {
     @OneToMany(mappedBy = "topic", orphanRemoval = true)
     open var cards: MutableList<Card> = mutableListOf()
 
-    /*fun getCardsCount(){
-        return cards.size(cards)
+    /*fun getCardsCount(): Card {
+        return cards.get
     }*/
 
     /*constructor(cards: MutableList<Card>, title: String?) {
