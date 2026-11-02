@@ -5,6 +5,7 @@ import javafx.collections.FXCollections
 import javafx.collections.ObservableList
 import javafx.fxml.FXML
 import javafx.scene.control.Button
+import javafx.scene.control.ListView
 import javafx.scene.control.TableColumn
 import javafx.scene.control.TableView
 import javafx.scene.control.TextField
@@ -19,6 +20,9 @@ import javax.security.auth.callback.Callback
 
 @Component
 class MainController(private val topicService: TopicService, val cardService: CardService) {
+
+    @FXML
+    private lateinit var wordsView: ListView<Card>
 
     @FXML
     private lateinit var textFieldTopic: TextField
@@ -65,7 +69,7 @@ class MainController(private val topicService: TopicService, val cardService: Ca
         topicTable.items = topicList
         loadTopics()
 
-        wordColumn.cellValueFactory = PropertyValueFactory("word")
+        /*wordColumn.cellValueFactory = PropertyValueFactory("word")*/
         //TODO wordTextField.textProperty().addListener { _, _, newValue ->}
     }
 
@@ -127,7 +131,7 @@ class MainController(private val topicService: TopicService, val cardService: Ca
     private fun loadWords() {
         val selectedTopic = topicTable.selectionModel.selectedItem
         val words: List<Card> = cardService.findCardsByTopicId(selectedTopic.id)
-        wordsTable.items = FXCollections.observableList(words)
+        wordsView.items.setAll(words)
     }
 
     fun onEditWord() {

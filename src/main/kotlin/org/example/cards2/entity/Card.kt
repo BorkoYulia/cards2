@@ -35,4 +35,9 @@ open class Card {
         this.transcription = transcription
         this.translation = translation
     }
+
+    override fun toString(): String {
+        return "$word"
+    }
+
 }
