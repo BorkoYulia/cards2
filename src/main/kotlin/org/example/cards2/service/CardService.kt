@@ -20,4 +20,8 @@ class CardService(val cardRepository: CardRepository, val topicRepository: Topic
             return emptyList()
         }
     }
+
+    fun deleteCard(selectedWord: Card) {
+        return cardRepository.delete(selectedWord)
+    }
 }

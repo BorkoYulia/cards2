@@ -24,8 +24,8 @@ import javax.security.auth.callback.Callback
 class MainController(private val topicService: TopicService, val cardService: CardService) {
 
 
-    lateinit var transcriptionLabel: Label
-    lateinit var translationLabel: Label
+    /*lateinit var transcriptionLabel: Label
+    lateinit var translationLabel: Label*/
 
     @FXML
     private lateinit var wordsView: ListView<Card>
@@ -75,8 +75,8 @@ class MainController(private val topicService: TopicService, val cardService: Ca
 
         wordsView.selectionModel.selectedItemProperty().addListener { _, oldValue, newValue ->
             if (newValue != null){
-                transcriptionLabel.text = newValue.transcription
-                translationLabel.text = newValue.translation
+                /*transcriptionLabel.text = newValue.transcription
+                translationLabel.text = newValue.translation*/
 
                 wordTextField.text = newValue.word
                 transcriptionTextField.text = newValue.transcription
@@ -152,10 +152,28 @@ class MainController(private val topicService: TopicService, val cardService: Ca
     }
 
     fun onEditWord() {
-        TODO("Not yet implemented")
+        val selectedWord = wordsView.selectionModel.selectedItem
+        if (selectedWord != null) {
+            selectedWord.word = wordTextField.text
+            selectedWord.transcription = transcriptionTextField.text
+            selectedWord.translation = translationTextField.text
+            cardService.save(selectedWord)
+        }
+        clearWordTextFields()
+        loadWords()
     }
 
     fun onDeleteWord() {
-        TODO("Not yet implemented")
+        val selectedWord = wordsView.selectionModel.selectedItem
+        cardService.deleteCard(selectedWord)
+
+        clearWordTextFields()
+        loadWords()
+    }
+
+    fun clearWordTextFields(){
+        wordTextField.clear()
+        transcriptionTextField.clear()
+        translationTextField.clear()
     }
 }

@@ -82,9 +82,9 @@
                           </VBox>-->
                       </center>
                       <right>
-                          <VBox BorderPane.alignment="CENTER">
+                          <VBox prefWidth="250.0" BorderPane.alignment="CENTER">
                               <children>
-                              <VBox>
+                              <!--<VBox>
                                  <children>
                                     <Label text="Transcription:">
                                        <font>
@@ -105,7 +105,7 @@
                                  <VBox.margin>
                                     <Insets left="10.0" />
                                  </VBox.margin>
-                              </VBox>
+                              </VBox>-->
                                   <!--<TableView prefHeight="75.0" prefWidth="200.0">
                                       <columns>
                                           <TableColumn fx:id="transcriptionColumn" prefWidth="129.00000154972076" text="Transcription" />
@@ -130,7 +130,7 @@
                                  <VBox.margin>
                                  </VBox.margin>
                                   </VBox>
-                                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                                  <HBox alignment="CENTER">
                                       <Button fx:id="addWordButton" disable="true" mnemonicParsing="false" onAction="#onAddWord" text="Add" />
                                       <Button fx:id="editWordButton" mnemonicParsing="false" onAction="#onEditWord" text="Edit" />
                                       <Button fx:id="deleteWordButton" mnemonicParsing="false" onAction="#onDeleteWord" text="Delete" />
