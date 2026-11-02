@@ -5,7 +5,9 @@ import javafx.collections.FXCollections
 import javafx.collections.ObservableList
 import javafx.fxml.FXML
 import javafx.scene.control.Button
+import javafx.scene.control.Label
 import javafx.scene.control.ListView
+import javafx.scene.control.SelectionMode
 import javafx.scene.control.TableColumn
 import javafx.scene.control.TableView
 import javafx.scene.control.TextField
@@ -20,6 +22,10 @@ import javax.security.auth.callback.Callback
 
 @Component
 class MainController(private val topicService: TopicService, val cardService: CardService) {
+
+
+    lateinit var transcriptionLabel: Label
+    lateinit var translationLabel: Label
 
     @FXML
     private lateinit var wordsView: ListView<Card>
@@ -65,6 +71,17 @@ class MainController(private val topicService: TopicService, val cardService: Ca
                 loadWords()
             }
             addWordButton.isDisable = newValue == null
+        }
+
+        wordsView.selectionModel.selectedItemProperty().addListener { _, oldValue, newValue ->
+            if (newValue != null){
+                transcriptionLabel.text = newValue.transcription
+                translationLabel.text = newValue.translation
+
+                wordTextField.text = newValue.word
+                transcriptionTextField.text = newValue.transcription
+                translationTextField.text = newValue.translation
+            }
         }
         topicTable.items = topicList
         loadTopics()
