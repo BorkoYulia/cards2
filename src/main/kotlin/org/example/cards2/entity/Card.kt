@@ -17,23 +17,27 @@ open class Card {
     @Column(name = "id", nullable = false)
     open var id: Int = 0
 
-    @Column(name = "word")
+    @Column(name = "word", nullable = false)
     open var word: String? = null
 
     @Column(name = "transcription")
     open var transcription: String? = null
 
-    @Column(name = "translation")
+    @Column(name = "translation", nullable = false)
     open var translation: String? = null
 
     @ManyToOne
     @JoinColumn(name = "topic_id")
     open var topic: Topic? = null
 
+    @Column(name = "box")
+    open var box: Int? = null
+
     constructor(word: String?, transcription: String?, translation: String?) {
         this.word = word
         this.transcription = transcription
         this.translation = translation
+        box = 1
     }
 
     override fun toString(): String {

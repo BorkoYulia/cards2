@@ -6,4 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository
 
 interface CardRepository : JpaRepository<Card, Int> {
     fun findByTopic(topic: Topic): List<Card>
+
+
+    fun findByTopic_IdAndBox(id: Int, box: Int): List<Card>
 }

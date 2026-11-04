@@ -24,4 +24,25 @@ class CardService(val cardRepository: CardRepository, val topicRepository: Topic
     fun deleteCard(selectedWord: Card) {
         return cardRepository.delete(selectedWord)
     }
+
+    fun findBoxThatContainsCards(topicId: Int): Int {
+        val list = findCardsByTopicId(topicId)
+        /*if (list.isNotEmpty()){
+            var min = 5
+            for (card in list){
+                if (card.box!! < min){
+                    min = card.box!!
+                }
+            }
+        }*/
+        if (list.isNotEmpty()){
+            return list.minBy { it.box!! }.box!!
+        }else{
+            return 0
+        }
+    }
+
+    fun findCardsByTopicIdInActiveBox(topicId: Int, activeBox: Int): List<Card> {
+        return cardRepository.findByTopic_IdAndBox(topicId, activeBox)
+    }
 }
